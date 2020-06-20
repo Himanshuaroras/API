@@ -33,5 +33,20 @@ public class HTTPMethods {
 		
 		
 	}
+	
+	public Response GetRequest(String URIKey)
+	{
+	
+		Response res=
+		given()
+		.contentType(ContentType.JSON)
+		
+		.when()
+		.get(pr.getProperty(URIKey));
+		
+		return res;
+		
+		
+	}
 
 }

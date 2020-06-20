@@ -1,11 +1,11 @@
 {
-"firstname":"sanjeev",
+"firstname":"{{firstname}}",
 "lastname":"kumar",
 "age":"28",
 "designation":"TL",
 "company":"xyz",
 "address":"scsfd",
-"id":"snjv"
+"id":"{{id}}"
 
 
 
