@@ -15,13 +15,17 @@ import com.jayway.restassured.response.Response;
 
 public class PostRequestTC {
 	
-	/***********Properties load + Json file load***********/
-	/*******While hitting the request we have to give the id value***********/
-	/************hit post request*********/
-	/******status code validate***********/
-	/******Data validate***********/
 	
-	public static void main(String[] args) throws IOException {
+	static String idValue;
+	public void testcase1() throws IOException {
+		
+		/***********Properties load + Json file load***********/
+		/*******While hitting the request we have to give the id value***********/
+		/************hit post request*********/
+		/******status code validate***********/
+		/******Data validate***********/
+	
+		
 		
 		Properties p=PropertiesFileLoad.propertiesLoad("../APIFramework/URIs.properties");
 		String body=JsonFileLoad.jsonData("../APIFramework/src/test/java/org/testing/Resources/BodyData.json");
@@ -38,8 +42,16 @@ public class PostRequestTC {
 		/********Pass assertion**********/
 		
 		ResponseDataValidationUsingJsonPath.responseData("Himanshu", res, "firstname");
+		
+		idValue=res.jsonPath().get("id");
+		System.out.println("id value is "+idValue);
+		
+		
+		
+		
+		
 		/*******Fail assertion**********/
-		ResponseDataValidationUsingJsonPath.responseData("Govind", res, "firstname");
+//		ResponseDataValidationUsingJsonPath.responseData("Govind", res, "firstname");
 		
 		
 /*		HTTPMethods http=new HTTPMethods(p);

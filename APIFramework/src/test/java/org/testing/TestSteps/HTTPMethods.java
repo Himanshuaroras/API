@@ -34,7 +34,48 @@ public class HTTPMethods {
 		
 	}
 	
+	
+	public Response GetRequest(String URIKey,String idValue)
+	{
+		String getURI=pr.getProperty(URIKey)+"/"+idValue;
+		Response res=
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(getURI);
+		return res;
+		
+		
+	}
+	
+	
 	public Response GetRequest(String URIKey)
+	{
+	
+		Response res=
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.get(pr.getProperty(URIKey));
+		return res;
+		
+		
+	}
+	
+	
+	public Response UpdateRequest(String bodyData,String URIKey, String idValue)
+	{
+		String putURI=pr.getProperty(URIKey)+"/"+idValue;
+		Response res=
+		given()
+		.contentType(ContentType.JSON)
+		.when()
+		.put(putURI);
+		
+		return res;
+	}
+	
+/*	public Response GetRequest(String URIKey)
 	{
 	
 		Response res=
@@ -49,4 +90,5 @@ public class HTTPMethods {
 		
 	}
 
+*/
 }
